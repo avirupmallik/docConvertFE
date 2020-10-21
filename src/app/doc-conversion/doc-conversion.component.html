@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <title>PDF Converter</title>
+</head>
+<body>
+<section>
+  <div class="container p-5">
+    <!-- For demo purpose -->
+    <div class="row mb-5 text-center text-white">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="display-4">Enjoy Conversion unlimited!! </h1>
+        <p class="lead">Pdf Converter App(Please place your file in <b>C:\fakepath</b> before converting).</p>
+      </div>
+    </div>
+    <!-- End -->
+
+
+    <div class="row">
+      <div class="col-lg-5 mx-auto">
+        <div class="p-5 bg-white shadow rounded-lg"><img src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt="" width="200" class="d-block mx-auto mb-4 rounded-pill">
+
+          <!-- Default bootstrap file upload-->
+
+          <h6 class="text-center mb-4 text-muted">
+            Please upload here
+          </h6>
+
+          <h1>Upload file</h1>
+          <form [formGroup] = "formGroup" (ngSubmit)="onSubmit()">
+           <input type="file" formControlName="fileName"/><br><br>
+           <button type="submit" class="btn btn-primary" [disabled]="formGroup.invalid" value="upload" >Submit</button>
+          </form>
+          <!-- End -->
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

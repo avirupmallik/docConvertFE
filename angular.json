@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Doc-Converter"
+    }
+  },
+  "defaultProject": "Doc-Converter",
+  "cli": {
+    "analytics": "837b4cc0-376d-4cd7-919b-bf156ec11b3d"
+  }
 }
