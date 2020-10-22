@@ -42,7 +42,8 @@ export class DocConversionComponent implements OnInit {
     
     console.log(this.formGroup.value)
     this.body = new files(this.formGroup.value.fileName,'jhgg');
-    this.http.post(this.baseUrl+"attachment/",this.body,{responseType: 'arraybuffer'}).subscribe(data=>{
+    
+    this.http.post(this.baseUrl+"attachment",this.body,{responseType: 'arraybuffer'}).subscribe(data=>{
       console.log("within subscribe")
       console.log(data)
        let blob = new Blob([data],  {type: "application/pdf"});
@@ -60,6 +61,9 @@ let str = filenameWithExtension;
   }
 
   ngOnInit(): void {
+    this.http.get(this.baseUrl+"test").subscribe(data=>{
+      console.log(data)
+    });
     this.formGroup=new FormGroup({
       fileName:new FormControl()
     })
