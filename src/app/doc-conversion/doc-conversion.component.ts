@@ -5,6 +5,7 @@ import { FileService } from '../file.service';
 import { files } from './FileDetails';
 import { saveAs } from 'file-saver';
 import {basename} from 'path';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-doc-conversion',
   templateUrl: './doc-conversion.component.html',
@@ -17,6 +18,8 @@ export class DocConversionComponent implements OnInit {
   public formGroup = this.fb.group({
     file: [null, Validators.required]
   });
+
+  baseUrl = environment.baseUrl;
   constructor(private http: HttpClient,private fb: FormBuilder, private fileService: FileService) { }
    
   //  public onFileChange(event) {
@@ -39,7 +42,7 @@ export class DocConversionComponent implements OnInit {
     
     console.log(this.formGroup.value)
     this.body = new files(this.formGroup.value.fileName,'jhgg');
-    this.http.post("http://localhost:8080/attachment/",this.body,{responseType: 'arraybuffer'}).subscribe(data=>{
+    this.http.post(this.baseUrl+"attachment/",this.body,{responseType: 'arraybuffer'}).subscribe(data=>{
       console.log("within subscribe")
       console.log(data)
        let blob = new Blob([data],  {type: "application/pdf"});
